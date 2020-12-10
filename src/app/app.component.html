@@ -1,23 +1,39 @@
 <router-outlet></router-outlet>
 
 
-<div class="image-container" *ngIf="lightState$ | async as lightState" (click)="toggleState(lightState)"  >
-  <img *ngIf="lightState.isStarted; else isOff" src="assets/images/lightbulb_on.svg" alt="" srcset="">
+<div class="control-container">
+  <div *ngIf="lightState$ | async as lightState" (click)="toggleState(lightState)" class="inner-control-container">
 
-  <ng-template #isOff >
-    <img src="assets/images/lightbulb_off.svg" alt="" srcset="">
-  </ng-template>
-</div>
+    <div class="image-container">
+      <img *ngIf="lightState.isStarted; else isOff" src="assets/images/lightbulb_on.svg" alt="" srcset="">
 
+      <ng-template #isOff>
+        <img src="assets/images/lightbulb_off.svg" alt="" srcset="">
+      </ng-template>
+    </div>
 
-<div class="slider-container">
-  <mat-slider
-  thumbLabel
-  tickInterval="1"
-  min="1"
-  max="10"
-  (input)="updateState($event)"
+    <div class="slider-container">
+      <mat-slider [value]="lightState.range" thumbLabel tickInterval="1" min="1" max="10" (input)="updateState($event)">
+      </mat-slider>
+    </div>
 
-  >
-</mat-slider>
+    <div class="button-container">
+
+      <app-state-button icon="brightness_6" [state]="true">
+
+      </app-state-button>
+
+      <app-state-button icon="flash_on" [state]="true">
+
+      </app-state-button>
+
+      <app-state-button icon="transform" [state]="true">
+
+      </app-state-button>
+
+      <app-state-button icon="all_inclusive" [state]="true">
+
+      </app-state-button>
+    </div>
+  </div>
 </div>

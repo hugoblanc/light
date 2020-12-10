@@ -1,26 +1,46 @@
-:host{
+:host {
   display: block;
   background-color: #272822;
-  height: 100vh;
-  width: 100vw;
   padding: 100px 0;
 
-  .image-container, .slider-container{
+  .control-container,
+  .slider-container {
 
     display: flex;
     justify-content: space-around;
     align-items: center;
   }
-  .image-container{
+
+  .control-container {
     width: 100vw;
-    img{
+    height: 60vh;
+
+    img {
       width: 50vw;
     }
+
     margin-bottom: 50px;
-  }
-  .slider-container{
-    mat-slider{
-      width: 50vw;
+
+    .image-container {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 40px;
     }
+
+    .slider-container {
+      mat-slider {
+        width: 50vw;
+      }
+
+      margin-bottom: 40px;
+    }
+
+    .button-container {
+      app-state-button {
+
+        margin: 1rem;
+      }
+    }
+
   }
 }

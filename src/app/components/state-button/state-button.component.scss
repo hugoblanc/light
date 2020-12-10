@@ -1,0 +1,31 @@
+$initailColor: #999999;
+$activatedColor: #69f0ae;
+
+
+button {
+  border: 1px $initailColor solid;
+  transition: all 200ms;
+}
+
+::ng-deep {
+  .mat-icon {
+    transition: all 200ms;
+    color: $initailColor;
+  }
+}
+
+::ng-deep {
+  button {
+    &.activated {
+      border: 1px $activatedColor solid;
+      transition: all 200ms;
+      background-color: $activatedColor;
+
+      .mat-icon {
+        transition: all 200ms;
+        color: #272822;
+      }
+    }
+
+  }
+}

@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {MatSliderChange} from '@angular/material/slider';
-import {Observable} from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { MatSliderChange } from '@angular/material/slider';
+import { Observable } from 'rxjs';
 
-import {LightService} from './light.service';
-import {LightState} from './models';
+import { LightService } from './light.service';
+import { LightState } from './models';
 
 @Component({
   selector: 'app-root',
@@ -24,14 +24,15 @@ export class AppComponent implements OnInit {
 
 
   toggleState(oldState: LightState): void {
-    const newStart = {...oldState};
-    newStart.isStarted = !newStart.isStarted;
-    this.lightState$ = this.lightService.setState(newStart);
+    const newState = new LightState({range: oldState.isStarted ? 0 : 10});
+
+    this.lightState$ = this.lightService.setState(newState);
   }
 
   updateState(newState: MatSliderChange): void {
-    console.log(newState.value);
-
+    const range = newState.value;
+    console.log(range);
+    this.lightService.setState(new LightState({ range })).subscribe();
   }
 
 }
