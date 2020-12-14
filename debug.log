@@ -1,3 +1,9 @@
 [1208/210739.831:ERROR:directory_reader_win.cc(43)] FindFirstFile: Le chemin d’accès spécifié est introuvable. (0x3)
 [1209/210452.817:ERROR:directory_reader_win.cc(43)] FindFirstFile: Le chemin d’accès spécifié est introuvable. (0x3)
 [1210/183850.016:ERROR:directory_reader_win.cc(43)] FindFirstFile: Le chemin d’accès spécifié est introuvable. (0x3)
+[1210/231723.313:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: Le canal de communication a été fermé. (0x6D)
+[1210/231723.319:ERROR:file_io.cc(90)] ReadExactly: expected 40, observed 0
+[1210/231723.600:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: Le canal de communication a été fermé. (0x6D)
+[1210/231723.604:ERROR:file_io.cc(90)] ReadExactly: expected 40, observed 0
+[1211/202338.516:ERROR:directory_reader_win.cc(43)] FindFirstFile: Le chemin d’accès spécifié est introuvable. (0x3)
+[1214/185501.376:ERROR:directory_reader_win.cc(43)] FindFirstFile: Le chemin d’accès spécifié est introuvable. (0x3)

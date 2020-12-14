@@ -3,7 +3,7 @@ import { MatSliderChange } from '@angular/material/slider';
 import { Observable } from 'rxjs';
 
 import { LightService } from './light.service';
-import { LightState } from './models';
+import { IEditLightState, LightState } from './models';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +15,8 @@ export class AppComponent implements OnInit {
 
   lightState$: Observable<LightState>;
 
+  currentMode = 1;
+
   constructor(private readonly lightService: LightService) {
   }
 
@@ -24,15 +26,21 @@ export class AppComponent implements OnInit {
 
 
   toggleState(oldState: LightState): void {
-    const newState = new LightState({range: oldState.isStarted ? 0 : 10});
+    const newState = new LightState({ range: oldState.isStarted ? 0 : 10 });
 
     this.lightState$ = this.lightService.setState(newState);
   }
 
+  changeMode(mode: number): void {
+    this.currentMode = mode;
+    const editState: IEditLightState = { mode };
+    this.lightService.setState(editState).subscribe();
+  }
+
   updateState(newState: MatSliderChange): void {
     const range = newState.value;
-    console.log(range);
-    this.lightService.setState(new LightState({ range })).subscribe();
+    const editState: IEditLightState = { range };
+    this.lightService.setState(editState).subscribe();
   }
 
 }

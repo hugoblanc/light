@@ -19,20 +19,16 @@
 
     <div class="button-container">
 
-      <app-state-button icon="brightness_6" [state]="true">
-
+      <app-state-button (click)="changeMode(1)" icon="brightness_6" [state]="lightState.mode == 1 ? true : false">
       </app-state-button>
 
-      <app-state-button icon="flash_on" [state]="true">
-
+      <app-state-button (click)="changeMode(2)" icon="flash_on" [state]="lightState.mode == 2 ? true : false">
       </app-state-button>
 
-      <app-state-button icon="transform" [state]="true">
-
+      <app-state-button (click)="changeMode(3)" icon="transform" [state]="lightState.mode == 3 ? true : false">
       </app-state-button>
 
-      <app-state-button icon="all_inclusive" [state]="true">
-
+      <app-state-button (click)="changeMode(4)" icon="all_inclusive" [state]="lightState.mode == 4 ? true : false">
       </app-state-button>
     </div>
   </div>
